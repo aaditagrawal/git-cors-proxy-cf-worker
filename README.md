@@ -1,4 +1,4 @@
-# gitcorsworker-cf
+# git-cors-proxy-cf-worker
 
 A lightweight Cloudflare Worker that proxies git HTTP requests with CORS headers. Built for [dgit](https://github.com/aaditagrawal/dgit) to enable browser-based git clones via isomorphic-git.
 
