@@ -29,9 +29,7 @@ export default {
     const resp = await fetch(target, {
       method: request.method,
       headers: proxyHeaders,
-      body: request.method !== "GET" && request.method !== "HEAD"
-        ? request.body
-        : undefined,
+      body: request.method !== "GET" && request.method !== "HEAD" ? request.body : undefined,
       redirect: "follow",
     });
 
