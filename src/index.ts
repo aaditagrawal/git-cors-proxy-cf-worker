@@ -57,7 +57,7 @@ function extractTarget(workerUrl: string): string | null {
   return null;
 }
 
-function corsHeaders(): Record<string, string> {
+function corsHeaders() {
   return {
     "access-control-allow-origin": "*",
     "access-control-allow-methods": "GET, POST, OPTIONS",
