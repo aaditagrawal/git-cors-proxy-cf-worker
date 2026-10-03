@@ -64,6 +64,9 @@ jobs:
       - name: Typecheck
         run: bun run typecheck
 
+      - name: Regression tests
+        run: bun test
+
   ci-ok:
     name: CI OK
     if: always()

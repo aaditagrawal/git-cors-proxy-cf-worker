@@ -1,7 +1,10 @@
 export default {
   async fetch(request: Request): Promise<Response> {
     if (request.method === "OPTIONS") {
-      return new Response(null, { status: 204, headers: corsHeaders() });
+      return new Response(null, {
+        status: 204,
+        headers: corsHeaders(request.headers.get("access-control-request-headers")),
+      });
     }
 
     const target = extractTarget(request.url);
@@ -26,12 +29,20 @@ export default {
     proxyHeaders.delete("origin");
     proxyHeaders.delete("referer");
 
-    const resp = await fetch(target, {
-      method: request.method,
-      headers: proxyHeaders,
-      body: request.method !== "GET" && request.method !== "HEAD" ? request.body : undefined,
-      redirect: "follow",
-    });
+    let resp: Response;
+    try {
+      resp = await fetch(target, {
+        method: request.method,
+        headers: proxyHeaders,
+        body: request.method !== "GET" && request.method !== "HEAD" ? request.body : undefined,
+        redirect: "follow",
+      });
+    } catch {
+      return new Response("Upstream request failed", {
+        status: 502,
+        headers: corsHeaders(),
+      });
+    }
 
     const responseHeaders = new Headers(resp.headers);
     for (const [k, v] of Object.entries(corsHeaders())) {
@@ -57,11 +68,11 @@ function extractTarget(workerUrl: string): string | null {
   return null;
 }
 
-function corsHeaders() {
+function corsHeaders(requestedHeaders: string | null = null) {
   return {
     "access-control-allow-origin": "*",
     "access-control-allow-methods": "GET, POST, OPTIONS",
-    "access-control-allow-headers": "content-type, authorization",
+    "access-control-allow-headers": requestedHeaders ?? "content-type, authorization, git-protocol",
     "access-control-expose-headers": "*",
   };
 }

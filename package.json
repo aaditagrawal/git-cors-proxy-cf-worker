@@ -3,6 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "test": "bun test",
     "dev": "wrangler dev",
     "dev:portless": "portless run",
     "deploy": "wrangler deploy",
