@@ -1,14 +1,6 @@
 {
   "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": [
-    "eslint",
-    "typescript",
-    "unicorn",
-    "oxc",
-    "import",
-    "node",
-    "promise"
-  ],
+  "plugins": ["eslint", "typescript", "unicorn", "oxc", "import", "node", "promise"],
   "jsPlugins": [
     {
       "name": "anti-slop",
@@ -102,10 +94,7 @@
         "**/tests/**",
         "**/fixtures/**"
       ],
-      "plugins": [
-        "vitest",
-        "jest"
-      ],
+      "plugins": ["vitest", "jest"],
       "rules": {
         "no-console": "off",
         "typescript/no-explicit-any": "warn",
@@ -128,11 +117,7 @@
       }
     },
     {
-      "files": [
-        "**/*.{config,configs}.{ts,js,mjs,cjs}",
-        "**/tsup.config.*",
-        "**/vitest.config.*"
-      ],
+      "files": ["**/*.{config,configs}.{ts,js,mjs,cjs}", "**/tsup.config.*", "**/vitest.config.*"],
       "rules": {
         "import/no-default-export": "off",
         "no-console": "off"

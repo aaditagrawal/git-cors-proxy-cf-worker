@@ -42,8 +42,8 @@ bun run dev
 
 ```js
 await git.clone({
-  corsProxy: 'https://your-worker.workers.dev',
-  url: 'https://github.com/user/repo.git',
+  corsProxy: "https://your-worker.workers.dev",
+  url: "https://github.com/user/repo.git",
   // ...
-})
+});
 ```
