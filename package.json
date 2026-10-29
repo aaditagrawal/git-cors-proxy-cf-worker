@@ -14,12 +14,12 @@
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^5.20260922.1",
-    "@oxlint/plugins": "^1.85.0",
-    "oxfmt": "^0.70.0",
-    "oxlint": "^1.85.0",
+    "@cloudflare/workers-types": "^5.20261029.1",
+    "@oxlint/plugins": "^1.90.0",
+    "oxfmt": "^0.75.0",
+    "oxlint": "^1.90.0",
     "typescript": "^7.0.2",
-    "wrangler": "^4.136.2"
+    "wrangler": "^4.155.0"
   },
   "packageManager": "bun@1.4.2"
 }
