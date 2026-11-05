@@ -54,7 +54,7 @@ export default {
       headers: responseHeaders,
     });
   },
-} satisfies ExportedHandler;
+} satisfies { fetch(request: Request): Promise<Response> };
 
 function extractTarget(workerUrl: string): string | null {
   // isomorphic-git strips the protocol: /github.com/user/repo.git/...
