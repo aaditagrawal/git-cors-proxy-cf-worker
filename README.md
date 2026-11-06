@@ -38,15 +38,6 @@ bun run dev
 # runs at http://localhost:8787
 ```
 
-Typechecking uses the app-local HTTP declarations in `src/http.d.ts`. These cover only the APIs this Worker consumes, not the full Workers API. The handler emits the same JavaScript. Extend the declarations and `tests/http.types.ts` together when adding APIs.
-
-```bash
-bun run test:types
-bun scripts/benchmark-types.mjs --output /tmp/git-cors-types-performance.json
-```
-
-The benchmark compares typechecking with the PR base using the pinned Bun version, an offline frozen baseline install, two warmup pairs, and alternating samples. It records wall time, child CPU time, memory, and emitted JavaScript equality.
-
 ## Usage with isomorphic-git
 
 ```js

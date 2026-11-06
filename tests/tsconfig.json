@@ -1,4 +1,0 @@
-{
-  "extends": "../tsconfig.json",
-  "include": ["../src/http.d.ts", "http.types.ts"]
-}

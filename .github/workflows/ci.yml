@@ -67,9 +67,6 @@ jobs:
       - name: Regression tests
         run: bun test
 
-      - name: HTTP type contracts
-        run: bun run test:types
-
   ci-ok:
     name: CI OK
     if: always()
